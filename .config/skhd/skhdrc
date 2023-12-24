@@ -1,0 +1,12 @@
+
+cmd - return : open -na kitty.app
+
+# cmd - b : open -na Brave\ Browser
+cmd - d : open -na dmenu-mac 
+
+# Navigation
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
