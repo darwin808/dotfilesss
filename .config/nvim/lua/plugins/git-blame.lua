@@ -1,7 +1,7 @@
 return {
   "f-person/git-blame.nvim",
   opts = {
-    delay = 1000,
+    delay = 300,
     date_format = "%r",
   },
 }
