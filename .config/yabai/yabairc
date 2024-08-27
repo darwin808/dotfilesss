@@ -47,8 +47,8 @@ yabai -m config window_shadow float
 yabai -m config window_border on
 yabai -m config window_border_width 5
 
-yabai -m config active_window_border_color 0xFFC678DD
-yabai -m config normal_window_border_color 0xFF415A5C
+yabai -m config active_window_border_color 0xFF00FFFF
+yabai -m config normal_window_border_color 0xFFA5A7A9
 yabai -m config insert_feedback_color 0xffd75f5f
 
 yabai -m config active_window_opacity 0.7

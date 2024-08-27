@@ -3,3 +3,6 @@
 -- Add any additional options here
 
 vim.opt.cursorline = false
+vim.opt.swapfile = false
+vim.g.autoformat = true
+

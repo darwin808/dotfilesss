@@ -50,6 +50,12 @@ return {
     highlight = { enable = true },
     indent = { enable = true },
     ensure_installed = {
+      "go",
+      "gomod",
+      "gowork",
+      "gosum",
+      "hcl",
+      "terraform",
       "bash",
       "c",
       "diff",

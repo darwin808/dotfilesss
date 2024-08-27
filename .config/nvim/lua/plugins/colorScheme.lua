@@ -70,7 +70,7 @@ return {
     },
   },
 }
-
+--
 -- return {
 --   "navarasu/onedark.nvim",
 --   lazy = false,
@@ -81,4 +81,17 @@ return {
 --     })
 --     require("onedark").load()
 --   end,
+-- }
+--
+--
+
+-- return {
+--
+--   { "blazkowolf/gruber-darker.nvim" },
+--   {
+--     "LazyVim/LazyVim",
+--     opts = {
+--       colorscheme = "gruber-darker",
+--     },
+--   },
 -- }

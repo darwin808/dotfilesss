@@ -111,6 +111,7 @@ return {
     },
     ---@class PluginLspOpts
     opts = {
+      autoformat = true,
       ---@type lspconfig.options
       servers = {
         -- tsserver will be automatically installed with mason and loaded with lspconfig

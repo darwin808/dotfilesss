@@ -5,8 +5,27 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+export GOPRIVATE="github.com/zesty-io"
+# alias docker="/Applications/Docker.app/Contents/Resources/bin/docker"
+export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 
 
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+
+export ANDROID_HOME=/Users/darwin/Library/Android/sdk/
+
+
+
+
+export M2_HOME="/Users/darwin/Documents/apache-maven-3.9.8"
+export PATH="${M2_HOME}/bin:${PATH}"
+
+GOPATH=$HOME/go
+PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+# export GOPATH=$home/go
+
+export DENO_INSTALL="/Users/darwin/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -21,6 +40,9 @@ alias t="tmux"
 alias c="clear"
 alias e="exit"
 alias em="emacs -nw"
+alias python="python3"
+alias gp="git pull origin"
+alias gs="git status"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -123,6 +145,7 @@ export NVM_DIR=~/.nvm
 eval "$(starship init zsh)"
 
 
+eval "$(pyenv init --path)"
 
 # bun completions
 [ -s "/Users/darwin/.bun/_bun" ] && source "/Users/darwin/.bun/_bun"
@@ -136,3 +159,19 @@ if [ -f '/Users/darwin/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/User
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/darwin/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/darwin/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
+
+complete -o nospace -C /usr/local/Cellar/tfenv/3.0.0/versions/1.7.1/terraform terraform
+
+# pnpm
+export PNPM_HOME="/Users/darwin/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
+
+complete -o nospace -C /usr/local/bin/terragrunt terragrunt
