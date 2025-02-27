@@ -43,6 +43,9 @@ alias em="emacs -nw"
 alias python="python3"
 alias gp="git pull origin"
 alias gs="git status"
+alias nt="npm test"
+alias nc="npm run test:unit:coverage"
+alias zzz="zellij"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -145,7 +148,10 @@ export NVM_DIR=~/.nvm
 eval "$(starship init zsh)"
 
 
-eval "$(pyenv init --path)"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
 
 # bun completions
 [ -s "/Users/darwin/.bun/_bun" ] && source "/Users/darwin/.bun/_bun"
@@ -175,3 +181,20 @@ esac
 export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
 
 complete -o nospace -C /usr/local/bin/terragrunt terragrunt
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+alias pip=/opt/anaconda3/bin/pip3

@@ -1,7 +1,5 @@
 # vim:fileencoding=utf-8:ft=conf:foldmethod=marker
 
-hide_window_decorations titlebar-only
-
 # include colorscheme
 include colors.conf
 
@@ -11,14 +9,10 @@ include colors.conf
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
-# font_family      Iosevka Nerd Font Mono
-# font_family      SFMono Nerd Font
-# font_family      FiraCode Nerd Font
-# font_family      JetBrains Mono 
-font_family       JetBrainsMonoNL-Regular
-bold_font        false
-italic_font      false
-bold_italic_font false
+font_family      Iosevka Nerd Font
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
 
 #: You can specify different fonts for the bold/italic/bold-italic
 #: variants. To get a full list of supported fonts use the `kitty
@@ -32,7 +26,7 @@ bold_italic_font false
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 20.0
+font_size 10.0
 
 #: Font size (in pts)
 
@@ -78,7 +72,7 @@ adjust_column_width 0
 
 #:     symbol_map codepoints Font Family Name
 
-disable_ligatures never
+# disable_ligatures never
 
 #: Choose how you want to handle multi-character ligatures. The
 #: default is to always render them.  You can tell kitty to not render
@@ -150,14 +144,11 @@ disable_ligatures never
 
 #: Cursor customization {{{
 
-cursor #ffff00
-#cursor #FF2400
- cursor_beam_thickness 100
-
+#cursor #cccccc
 
 #: Default cursor color
 
-cursor_text_color #111111
+#cursor_text_color #111111
 
 #: Choose the color of text under the cursor. If you want it rendered
 #: with the background color of the cell underneath instead, use the
@@ -167,14 +158,14 @@ cursor_shape block
 
 #: The cursor shape can be one of (block, beam, underline)
 
-  cursor_blink_interval 0
+# cursor_blink_interval -1
 
 #: The interval (in seconds) at which to blink the cursor. Set to zero
 #: to disable blinking. Negative values mean use system default. Note
 #: that numbers smaller than repaint_delay will be limited to
 #: repaint_delay.
 
-# cursor_stop_blinking_after 0
+# cursor_stop_blinking_after 15.0
 
 #: Stop blinking cursor after the specified number of seconds of
 #: keyboard inactivity.  Set to zero to never stop blinking.
@@ -397,14 +388,14 @@ enable_audio_bell yes
 #: resizing windows. The cells value is used for horizontal resizing
 #: and the lines value for vertical resizing.
 
- window_border_width 1.0
+# window_border_width 1.0
 
 #: The width (in pts) of window borders. Will be rounded to the
 #: nearest number of pixels based on screen resolution. Note that
 #: borders are displayed only when more than one window is visible.
 #: They are meant to separate multiple windows.
 
-draw_minimal_borders false
+# draw_minimal_borders yes
 
 #: Draw only the minimum borders needed. This means that only the
 #: minimum needed borders for inactive windows are drawn. That is only
@@ -422,7 +413,7 @@ window_margin_width 10.0
 #: visible. Negative values will cause the value of
 #: window_margin_width to be used instead.
 
- window_padding_width 0.0
+# window_padding_width 0.0
 
 #: The window padding (in pts) (blank area between the text and the
 #: window border)
@@ -436,12 +427,12 @@ window_margin_width 10.0
 #: placed centrally. A value of top-left means the padding will be on
 #: only the bottom and right edges.
 
- active_border_color #00ff00
+# active_border_color #00ff00
 
 #: The color for the border of the active window. Set this to none to
 #: not draw borders around the active window.
 
- inactive_border_color #cccccc
+# inactive_border_color #cccccc
 
 #: The color for the border of inactive windows
 
@@ -455,7 +446,7 @@ window_margin_width 10.0
 #: Fade the text in inactive windows by the specified amount (a number
 #: between zero and one, with zero being fully faded).
 
-# hide_window_decorations yes
+# hide_window_decorations no
 
 #: Hide the window decorations (title-bar and window borders) with
 #: yes. On macOS, titlebar-only can be used to only hide the titlebar.
@@ -566,7 +557,8 @@ window_margin_width 10.0
 #background #000000
 
 #: The foreground and background colors
-background_opacity 1
+
+#background_opacity 1.0
 
 #: The opacity of the background. A number between 0 and 1, where 1 is
 #: opaque and 0 is fully transparent.  This will only work if
@@ -808,8 +800,6 @@ allow_remote_control yes
 
 #: Disable this if you want kitty top-level (OS) windows to not be
 #: resizable on macOS.
-
-# macos_hide_titlebar yes
 
 # macos_thicken_font 0
 

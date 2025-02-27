@@ -1,65 +1,3 @@
--- return {
---   { "rose-pine/neovim" },
---   {
---     "LazyVim/LazyVim",
---     opts = {
---       colorscheme = "rose-pine",
---       bold = false,
---       italics = false,
---     },
---   },
--- }
-
--- return {
---   { "blazkowolf/gruber-darker.nvim" },
---
---   {
---     "LazyVim/LazyVim",
---     opts = {
---       colorscheme = "gruber-darker",
---       bold = false,
---       italic = {
---         strings = false,
---       },
---     },
---   },
--- }
-
--- return {
---
---   { "olimorris/onedarkpro.nvim" },
---   {
---     "LazyVim/LazyVim",
---     opts = {
---       colorscheme = "onedark",
---       colors = {
---         cursorline = "#FF0000", -- This is optional. The default cursorline color is based on the background
---       },
---       options = {
---         cursorline = true,
---         transparency = true,
---       },
---       highlights = {
---
---         Comment = { italic = false, underline = false },
---         Directory = { bold = false },
---         ErrorMsg = { italic = false, bold = false },
---       },
---     },
---   },
--- }
---
--- return {
---
---   { "romgrk/doom-one.vim" },
---   {
---     "LazyVim/LazyVim",
---     opts = {
---       colorscheme = "doom-one",
---     },
---   },
--- }
-
 return {
 
   { "darwin808/doom-one-v1" },
@@ -70,28 +8,68 @@ return {
     },
   },
 }
---
 -- return {
---   "navarasu/onedark.nvim",
---   lazy = false,
---   priority = 1000,
---   config = function()
---     require("onedark").setup({
---       style = "cool",
---     })
---     require("onedark").load()
---   end,
+--   -- add gruvbox
+--   { "ellisonleao/gruvbox.nvim" },
+--
+--   -- Configure LazyVim to load gruvbox
+--   {
+--     "LazyVim/LazyVim",
+--     opts = {
+--       colorscheme = "gruvbox",
+--     },
+--   },
 -- }
 --
 --
 
 -- return {
---
---   { "blazkowolf/gruber-darker.nvim" },
---   {
---     "LazyVim/LazyVim",
---     opts = {
---       colorscheme = "gruber-darker",
---     },
---   },
+--   "rose-pine/neovim",
+--   name = "rose-pine",
+--   config = function()
+--     require("rose-pine").setup({
+--       variant = "auto",
+--       dark_variant = "main",
+--       dim_inactive_windows = false,
+--       extend_background_behind_borders = true,
+--       enable = {
+--         terminal = true,
+--         legacy_highlights = true,
+--         migrations = true,
+--       },
+--       styles = {
+--         bold = false, -- Changed to false to disable bold
+--         italic = false, -- Changed to false to disable italic
+--         transparency = true,
+--       },
+--       groups = {
+--         border = "muted",
+--         link = "iris",
+--         panel = "surface",
+--         error = "love",
+--         hint = "iris",
+--         info = "foam",
+--         note = "pine",
+--         todo = "rose",
+--         warn = "gold",
+--         git_add = "foam",
+--         git_change = "rose",
+--         git_delete = "love",
+--         git_dirty = "rose",
+--         git_ignore = "muted",
+--         git_merge = "iris",
+--         git_rename = "pine",
+--         git_stage = "iris",
+--         git_text = "rose",
+--         git_untracked = "subtle",
+--         h1 = "iris",
+--         h2 = "foam",
+--         h3 = "rose",
+--         h4 = "gold",
+--         h5 = "pine",
+--         h6 = "foam",
+--       },
+--     })
+--     vim.cmd("colorscheme rose-pine")
+--   end,
 -- }
