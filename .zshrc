@@ -1,3 +1,10 @@
+DISABLE_AUTO_UPDATE="true"
+DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_COMPFIX="true"
+
+
+# zmodload zsh/zprof
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="$PATH:/usr/local/share/npm/bin"
@@ -109,6 +116,8 @@ alias zzz="zellij"
 # Add wisely, as too many plugins slow down shell startup.
 
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
+ZSH_AUTOSUGGEST_USE_ASYNC=1
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -143,9 +152,13 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="$PATH:$HOME/.yarn/bin"
 
-export NVM_DIR=~/.nvm
- [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-eval "$(starship init zsh)"
+#FNM 
+eval "$(fnm env --use-on-cd --shell zsh)"
+
+
+# NVM 
+# export NVM_DIR=~/.nvm
+#  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -198,3 +211,14 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 alias pip=/opt/anaconda3/bin/pip3
+
+# fnm
+FNM_PATH="/Users/darwin1/Library/Application Support/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/Users/darwin1/Library/Application Support/fnm:$PATH"
+  eval "`fnm env`"
+fi
+
+eval "$(starship init zsh)"
+# zprof
+
