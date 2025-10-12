@@ -7,11 +7,11 @@ set -x
 declare -A gaps
 declare -A color
 
-gaps["top"]="0"
-gaps["bottom"]="0"
-gaps["left"]="0"
-gaps["right"]="0"
-gaps["inner"]="0"
+gaps["top"]="20"
+gaps["bottom"]="20"
+gaps["left"]="20"
+gaps["right"]="20"
+gaps["inner"]="20"
 
 color["focused"]="0xE0808080"
 color["normal"]="0x00010101"
@@ -45,11 +45,11 @@ yabai -m config window_opacity on
 yabai -m config window_shadow float
 
 yabai -m config window_border on
-yabai -m config window_border_width 5
+yabai -m config window_border_width 8
 
-yabai -m config active_window_border_color 0xFF00FFFF
-yabai -m config normal_window_border_color 0xFFA5A7A9
-yabai -m config insert_feedback_color 0xffd75f5f
+yabai -m config active_window_border_color 0xFFe78a4e # Gruvbox orange
+yabai -m config normal_window_border_color 0xFF665c54 # Gruvbox dark gray
+yabai -m config insert_feedback_color 0xFFea6962
 
 yabai -m config active_window_opacity 0.7
 yabai -m config normal_window_opacity 0.7
@@ -64,33 +64,6 @@ yabai -m config mouse_action2 resize
 
 yabai -m config window_border_blur off
 
-# ===== Rules ==================================
-
-yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
-yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
-yabai -m rule --add label="macfeh" app="^macfeh$" manage=off
-yabai -m rule --add label="System Preferences" app="^System Preferences$" title=".*" manage=off
-yabai -m rule --add label="App Store" app="^App Store$" manage=off
-yabai -m rule --add label="Activity Monitor" app="^Activity Monitor$" manage=off
-yabai -m rule --add label="KeePassXC" app="^KeePassXC$" manage=off
-yabai -m rule --add label="Calculator" app="^Calculator$" manage=off
-yabai -m rule --add label="Dictionary" app="^Dictionary$" manage=off
-yabai -m rule --add label="mpv" app="^mpv$" manage=off
-yabai -m rule --add label="Software Update" title="Software Update" manage=off
-yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
-yabai -m rule --add app="Visual Studio Code" opacity=0.7
-yabai -m rule --add app="code" opacity=0.7
-yabai -m rule --add app="kitty" opacity=0.7
-
-# ===== Signals ================================
-
-yabai -m signal --add event=application_front_switched action="${ubersicht_spaces_refresh_command}"
-yabai -m signal --add event=display_changed action="${ubersicht_spaces_refresh_command}"
-yabai -m signal --add event=space_changed action="${ubersicht_spaces_refresh_command}"
-yabai -m signal --add event=window_created action="${ubersicht_spaces_refresh_command}"
-yabai -m signal --add event=window_destroyed action="${ubersicht_spaces_refresh_command}"
-yabai -m signal --add event=window_focused action="${ubersicht_spaces_refresh_command}"
-yabai -m signal --add event=window_title_changed action="${ubersicht_spaces_refresh_command}"
-
 set +x
 printf "yabai: configuration loaded...\\n"
+borders active_color=0xffe78a4e inactive_color=0xff665c54 width=8.0 &
