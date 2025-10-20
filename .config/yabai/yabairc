@@ -66,4 +66,4 @@ yabai -m config window_border_blur off
 
 set +x
 printf "yabai: configuration loaded...\\n"
-borders active_color=0xffe78a4e inactive_color=0xff665c54 width=8.0 &
+borders active_color=0xffb8bb26 inactive_color=0xff665c54 width=12.0 &

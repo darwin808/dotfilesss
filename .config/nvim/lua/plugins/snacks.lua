@@ -5,6 +5,13 @@ return {
       indent = { enabled = false },
       explorer = {},
       picker = {
+        icons = {
+          tree = {
+            vertical = "  ",
+            middle = "  ",
+            last = "  ",
+          },
+        },
         sources = {
           -- explorer = {
           --   layout = { layout = { position = "right" } },
