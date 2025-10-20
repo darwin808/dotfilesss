@@ -17,6 +17,9 @@ return {
           --   layout = { layout = { position = "right" } },
           -- },
           explorer = {
+            hidden = true,
+            ignored = true,
+
             layout = {
               layout = {
                 box = "vertical",
