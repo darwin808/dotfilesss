@@ -8,6 +8,12 @@ vim.opt.cursorline = false
 vim.opt.guicursor = "n:block,i:block,v:block"
 vim.o.guifont = "JetBrainsMono Nerd Font Mono:h21"
 
+-- LSP Server to use for Python.
+-- Set to "basedpyright" to use basedpyright instead of pyright.
+vim.g.lazyvim_python_lsp = "pyright"
+-- Set to "ruff_lsp" to use the old LSP implementation version.
+vim.g.lazyvim_python_ruff = "ruff"
+
 vim.g.neovide_position_animation_length = 0
 vim.g.neovide_cursor_animation_length = 0.00
 vim.g.neovide_cursor_trail_size = 0
