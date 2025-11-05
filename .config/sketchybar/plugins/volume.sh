@@ -4,17 +4,32 @@
 # percentage is passed to the script.
 
 if [ "$SENDER" = "volume_change" ]; then
-  VOLUME="$INFO"
+	VOLUME="$INFO"
 
-  case "$VOLUME" in
-    [6-9][0-9]|100) ICON="󰕾"
-    ;;
-    [3-5][0-9]) ICON="󰖀"
-    ;;
-    [1-9]|[1-2][0-9]) ICON="󰕿"
-    ;;
-    *) ICON="󰖁"
-  esac
+	# Gruvbox colors
+	COLOR_GREEN=0xffb8bb26  # Gruvbox green
+	COLOR_YELLOW=0xfffabd2f # Gruvbox yellow
+	COLOR_ORANGE=0xfffe8019 # Gruvbox orange
+	COLOR_GRAY=0xff928374   # Gruvbox gray
 
-  sketchybar --set "$NAME" icon="$ICON" label="$VOLUME%"
+	case "$VOLUME" in
+	[6-9][0-9] | 100)
+		ICON="􀊩"
+		COLOR=$COLOR_GREEN
+		;;
+	[3-5][0-9])
+		ICON="􀊧"
+		COLOR=$COLOR_YELLOW
+		;;
+	[1-9] | [1-2][0-9])
+		ICON="􀊥"
+		COLOR=$COLOR_ORANGE
+		;;
+	*)
+		ICON="􀊣"
+		COLOR=$COLOR_GRAY
+		;;
+	esac
+
+	sketchybar --set "$NAME" icon="$ICON" label="$VOLUME%" background.color="$COLOR" icon.color=0xff282828 label.color=0xff282828
 fi

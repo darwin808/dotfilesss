@@ -1,10 +1,26 @@
 {
   "permissions": {
     "allow": [
-      "Bash(cat:*)",
+      "WebSearch",
+      "Bash(./battery.sh)",
+      "Bash(sketchybar:*)",
+      "Bash(sysctl:*)",
       "Bash(chmod:*)",
-      "Bash(sketchybar --reload:*)",
-      "Bash(fc-list:*)"
+      "Bash(command -v:*)",
+      "Bash(osx-cpu-temp:*)",
+      "Bash(asitop --help:*)",
+      "Bash(asitop:*)",
+      "Bash(timeout 3 sudo -n powermetrics:*)",
+      "Bash(sudo -n powermetrics:*)",
+      "Bash(/Users/cf77xj/.config/sketchybar/plugins/get_temp.py)",
+      "Bash(route -n get:*)",
+      "Bash(awk:*)",
+      "Bash(netstat:*)",
+      "Bash(cat:*)",
+      "Bash(bash:*)",
+      "Bash(fc-list:*)",
+      "Bash(system_profiler:*)",
+      "Bash(open https://developer.apple.com/fonts/)"
     ],
     "deny": [],
     "ask": []
