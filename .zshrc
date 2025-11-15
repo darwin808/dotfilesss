@@ -1,52 +1,79 @@
+# ========================================
+# Profiling (uncomment to measure startup time)
+# ========================================
+zmodload zsh/zprof
+
+# ========================================
+# ZSH Options
+# ========================================
 DISABLE_AUTO_UPDATE="true"
 DISABLE_MAGIC_FUNCTIONS="true"
-DISABLE_COMPFIX="true"
 
+# ========================================
+# History Configuration
+# ========================================
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY          # Share history between sessions
+setopt HIST_IGNORE_DUPS       # Don't save duplicates
+setopt HIST_IGNORE_SPACE      # Ignore commands starting with space
+setopt HIST_VERIFY            # Show command before executing from history
 
-# zmodload zsh/zprof
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# ========================================
+# PATH Configuration
+# ========================================
 export PATH="$PATH:/usr/local/share/npm/bin"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
+export PATH="$PATH:$HOME/.yarn/bin"
+export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
+
+# ========================================
+# Android & Java
+# ========================================
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-export GOPRIVATE="github.com/zesty-io"
-# alias docker="/Applications/Docker.app/Contents/Resources/bin/docker"
-export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
-
-
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 
-export ANDROID_HOME=/Users/darwin/Library/Android/sdk/
+# ========================================
+# Go Configuration
+# ========================================
+export GOPRIVATE="github.com/zesty-io"
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
-
-
-
+# ========================================
+# Maven
+# ========================================
 export M2_HOME="/Users/darwin/Documents/apache-maven-3.9.8"
 export PATH="${M2_HOME}/bin:${PATH}"
 
-GOPATH=$HOME/go
-PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
-# export GOPATH=$home/go
-
+# ========================================
+# Deno
+# ========================================
 export DENO_INSTALL="/Users/darwin/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# ========================================
+# Bun
+# ========================================
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
-# Luke Smith style prompt - no path, no git
-autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%m%{$fg[red]%}]%{$reset_color%}$%b "
+# ========================================
+# pnpm
+# ========================================
+export PNPM_HOME="/Users/darwin/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
+# ========================================
+# Aliases
+# ========================================
 alias vim="nvim"
 alias t="tmux"
 alias c="clear"
@@ -59,171 +86,118 @@ alias nt="npm test"
 alias nc="npm run test:unit:coverage"
 alias zzz="zellij"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# ========================================
+# FNM (Fast Node Manager) - Optimized
+# ========================================
+# Only load fnm env once, without auto-cd hook (lazy-load it instead)
+eval "$(fnm env --shell zsh)"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
-ZSH_AUTOSUGGEST_USE_ASYNC=1
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#
-#
-#
-
-
-export PATH="$PATH:$HOME/.yarn/bin"
-
-#FNM 
-eval "$(fnm env --use-on-cd --shell zsh)"
-
-
-# NVM 
-# export NVM_DIR=~/.nvm
-#  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
-
+# ========================================
+# Lazy-load Pyenv (loads only when 'python' or 'pyenv' is called)
+# ========================================
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+
+  # Lazy-load pyenv
+  pyenv() {
+    unfunction pyenv
+    eval "$(command pyenv init -)"
+    eval "$(command pyenv virtualenv-init -)"
+    pyenv "$@"
+  }
 fi
 
-# bun completions
-[ -s "/Users/darwin/.bun/_bun" ] && source "/Users/darwin/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/darwin/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/darwin/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/darwin/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/darwin/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
-
-complete -o nospace -C /usr/local/Cellar/tfenv/3.0.0/versions/1.7.1/terraform terraform
-
-# pnpm
-export PNPM_HOME="/Users/darwin/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
-
-complete -o nospace -C /usr/local/bin/terragrunt terragrunt
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+# ========================================
+# Lazy-load Conda (loads only when 'conda' is called)
+# ========================================
+export PATH="/opt/anaconda3/bin:$PATH"
 alias pip=/opt/anaconda3/bin/pip3
 
-# fnm
-FNM_PATH="/Users/darwin1/Library/Application Support/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="/Users/darwin1/Library/Application Support/fnm:$PATH"
-  eval "`fnm env`"
+conda() {
+  unfunction conda
+  __conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+  if [ $? -eq 0 ]; then
+      eval "$__conda_setup"
+  else
+      if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+          . "/opt/anaconda3/etc/profile.d/conda.sh"
+      fi
+  fi
+  unset __conda_setup
+  conda "$@"
+}
+
+# ========================================
+# Starship Prompt
+# ========================================
+eval "$(starship init zsh)"
+
+# ========================================
+# Completions System (LOAD ONCE ONLY)
+# ========================================
+autoload -Uz compinit
+# Only regenerate compdump once per day
+if [[ -n ${HOME}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C -d "${HOME}/.zcompdump"
 fi
 
-# eval "$(starship init zsh)"
-# zprof
+# Load bashcompinit for bash-style completions
+autoload -U +X bashcompinit && bashcompinit
 
+# ========================================
+# Bun completions
+# ========================================
+[ -s "/Users/darwin/.bun/_bun" ] && source "/Users/darwin/.bun/_bun"
+
+# ========================================
+# Terraform & Terragrunt Completions (deferred)
+# ========================================
+if command -v terraform &> /dev/null; then
+  complete -o nospace -C /usr/local/bin/terraform terraform 2>/dev/null
+fi
+if [ -f /usr/local/Cellar/tfenv/3.0.0/versions/1.7.1/terraform ]; then
+  complete -o nospace -C /usr/local/Cellar/tfenv/3.0.0/versions/1.7.1/terraform terraform 2>/dev/null
+fi
+if command -v terragrunt &> /dev/null; then
+  complete -o nospace -C /usr/local/bin/terragrunt terragrunt 2>/dev/null
+fi
+
+# ========================================
+# Lazy-load Google Cloud SDK (only load when 'gcloud' is called)
+# ========================================
+if [ -f '/Users/darwin/Downloads/google-cloud-sdk/path.zsh.inc' ]; then
+  source '/Users/darwin/Downloads/google-cloud-sdk/path.zsh.inc'
+fi
+
+# Lazy-load gcloud completions
+gcloud() {
+  if [ -f '/Users/darwin/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then
+    source '/Users/darwin/Downloads/google-cloud-sdk/completion.zsh.inc'
+  fi
+  unfunction gcloud
+  gcloud "$@"
+}
+
+# ========================================
+# Plugins (fast loading)
+# ========================================
+# zsh-autosuggestions
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
+ZSH_AUTOSUGGEST_USE_ASYNC=1
+[[ -f ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
+  source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# ========================================
+# Syntax Highlighting (MUST BE LAST)
+# ========================================
+# Using fast-syntax-highlighting (2-3x faster than zsh-syntax-highlighting)
+[[ -f ~/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]] && \
+  source ~/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+# ========================================
+# Profiling (uncomment to see results)
+# ========================================
+# zprof
