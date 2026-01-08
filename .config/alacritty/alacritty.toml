@@ -1,0 +1,84 @@
+# Font configuration
+[font]
+normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
+italic = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
+bold_italic = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
+size = 16
+
+
+# Window settings
+[window]
+padding = { x = 10, y = 10 }
+opacity = 1
+blur = true
+decorations = "Buttonless"
+dynamic_title = true
+
+
+
+
+[env]
+TERM = "xterm-256color"
+
+
+# DOOM ecams theme 
+# Colors
+# [colors]
+# [colors.primary]
+# background = "0x282c34"
+# foreground = "0xbbc2cf"
+#
+# [colors.cursor]
+# text = "0x282c34"
+# cursor = "0xbbc2cf"
+#
+# [colors.selection]
+# text = "0xbbc2cf"
+# background = "0x3f444a"
+#
+# [colors.normal]
+# black = "0x2a2e38"
+# red = "0xff6c6b"
+# green = "0x98be65"
+# yellow = "0xECBE7B"
+# blue = "0x51afef"
+# magenta = "0xc678dd"
+# cyan = "0x46D9FF"
+# white = "0xDFDFDF"
+#
+# [colors.bright]
+# black = "0xffffff"
+# red = "0xff6655"
+# green = "0x99bb66"
+# yellow = "0xECBE7B"
+# blue = "0x51afef"
+# magenta = "0xc678dd"
+# cyan = "0x46D9FF"
+# white = "0xbbc2cf"
+
+
+# # Colors (Gruvbox Material Dark Medium)
+#
+[colors.primary]
+background = '#282828'
+foreground = '#dfbf8e'
+
+[colors.normal]
+black = '#665c54'
+red = '#ea6962'
+green = '#a9b665'
+yellow = '#e78a4e'
+blue = '#7daea3'
+magenta = '#d3869b'
+cyan = '#89b482'
+white = '#dfbf8e'
+
+[colors.bright]
+black = '#928374'
+red = '#ea6962'
+green = '#a9b665'
+yellow = '#e3a84e'
+blue = '#7daea3'
+magenta = '#d3869b'
+white = '#dfbf8e'
